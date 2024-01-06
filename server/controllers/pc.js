@@ -42,7 +42,32 @@ const update = async (req, res, next) => {
       res.status(404).json({
         status: "error",
         code: 404,
-        message: `Not found task id: ${contactId}`,
+        message: `Not found task id: ${id}`,
+        data: "Not Found",
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+};
+
+const deleteItem = async (req, res, next) => {
+  const { id } = req.params;
+  console.log(id);
+  try {
+    const result = await service.deleteProduct(id);
+    if (result) {
+      res.json({
+        status: "success",
+        code: 200,
+        data: result,
+      });
+    } else {
+      res.status(404).json({
+        status: "error",
+        code: 404,
+        message: `Not found task id: ${id}`,
         data: "Not Found",
       });
     }
@@ -55,4 +80,5 @@ const update = async (req, res, next) => {
 module.exports = {
   get,
   update,
+  deleteItem,
 };

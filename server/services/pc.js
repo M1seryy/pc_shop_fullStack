@@ -8,7 +8,12 @@ const getAll = async () => {
 const updateProduct = (id, fields) => {
   return laptop.findByIdAndUpdate({ _id: id }, fields);
 };
+
+const deleteProduct = (id) => {
+  return laptop.findByIdAndDelete({ _id: id });
+};
 module.exports = {
   getAll,
   updateProduct,
+  deleteProduct,
 };
