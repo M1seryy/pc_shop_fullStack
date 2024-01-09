@@ -1,0 +1,83 @@
+.monitorCard {
+  width: 233px;
+  height: 350px;
+  /* border: 1px solid black; */
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.mainImage {
+  margin-left: auto;
+  margin-right: auto;
+}
+.desc {
+  color: #000;
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 400;
+}
+.descWrapper {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.desc:last-child {
+  font-weight: 700;
+  font-size: 18px;
+}
+.addBtn {
+  outline: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 140px;
+  height: 50px;
+  border-radius: 0.5em;
+  box-shadow: 0 0.625em 1em 0 rgba(30, 143, 255, 0.35);
+  overflow: hidden;
+}
+
+.addBtn div {
+  transform: translateY(0px);
+  width: 100%;
+}
+
+.addBtn,
+.addBtn div {
+  transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.addBtn div span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0.75em 1.125em;
+}
+
+.addBtn div:nth-child(1) {
+  background-color: #1e90ff;
+}
+
+.addBtn div:nth-child(2) {
+  background-color: #21dc62;
+}
+
+.addBtn:hover {
+  box-shadow: 0 0.625em 1em 0 rgba(33, 220, 98, 0.35);
+}
+
+.addBtn:hover div {
+  transform: translateY(-50px);
+}
+
+.addBtn p {
+  font-size: 17px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.addBtn:active {
+  transform: scale(0.95);
+}

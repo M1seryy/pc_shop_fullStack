@@ -7,9 +7,8 @@ const get = async (req, res, next) => {
     res.json({
       status: "success",
       code: 200,
-      data: {
-        laptops: results,
-      },
+      data: results,
+    
     });
   } catch (e) {
     console.error(e);
