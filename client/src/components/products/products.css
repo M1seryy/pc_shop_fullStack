@@ -26,3 +26,10 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+.titleImg {
+  width: 100%;
+  height: 100%;
+}
+h2 {
+  position: absolute;
+}
