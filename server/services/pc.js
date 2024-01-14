@@ -1,7 +1,7 @@
 const laptop = require("../models/laptop");
 
 const getAll = async () => {
-  const findAll = await laptop.find({});
+  const findAll = await laptop.find();
   return findAll;
 };
 

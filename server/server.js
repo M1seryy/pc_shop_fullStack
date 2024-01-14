@@ -2,7 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routerLaptop = require("./routes/pcRoute");
 require("dotenv").config();
+const cors = require("cors");
 const app = express();
+app.use(cors());
 app.use(express.json());
 const uriDb = process.env.MONGO_DB_HOST;
 

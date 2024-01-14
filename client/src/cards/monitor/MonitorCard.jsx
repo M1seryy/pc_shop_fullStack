@@ -2,7 +2,7 @@ import React from "react";
 import "./monitor.css";
 import monitorImg from "../../images/monitor.png";
 
-const MonitorCard = () => {
+const MonitorCard = ({ monitorData }) => {
   return (
     // <li className="monitorCard">
     //   <img className="mainImage" src={monitorImg} alt="monitor" />
@@ -33,12 +33,12 @@ const MonitorCard = () => {
         // style="background-image: url('your_product_image.jpg');"
       >
         {" "}
-        <img className="mainImage" src={monitorImg} alt="monitor" />
+        <img className="mainImage" src={monitorData.img} alt="monitor" />
       </div>
       <div className="product-details">
-        <div className="product-title">LG 65EP5G-B</div>
-        <p className="desc">Size : 27</p>
-        <p className="desc">Refresh : 144HZ</p>
+        <div className="product-title">{monitorData.name}</div>
+        <p className="desc">Size : {monitorData.screen_size}</p>
+        <p className="desc">Refresh : {monitorData.refresh_rate} Hz</p>
         <div className="product-price">Price: $299</div>
         <a href="#" className="buy-button">
           Купити
