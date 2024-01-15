@@ -12,6 +12,7 @@ const updateProduct = (id, fields) => {
 const deleteProduct = (id) => {
   return laptop.findByIdAndDelete({ _id: id });
 };
+
 module.exports = {
   getAll,
   updateProduct,

@@ -2,8 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routerLaptop = require("./routes/pcRoute");
 require("dotenv").config();
+
 const cors = require("cors");
+const authRouter = require("./routes/authRouter");
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 const uriDb = process.env.MONGO_DB_HOST;
@@ -13,6 +16,7 @@ const connection = mongoose.connect(uriDb, {
 });
 
 app.use("/api/laptop", routerLaptop);
+app.use("/api/auth", authRouter);
 
 app.use((_, res, __) => {
   res.status(404).json({
