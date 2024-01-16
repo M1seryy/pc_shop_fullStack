@@ -5,6 +5,8 @@ const createUser = async ({ name, email, password }) => {
   return userScheme.create({name, email, password});
 };
 
+    
+
 module.exports = {
   createUser,
 };

@@ -1,6 +1,7 @@
 const bctypt = require("bcrypt");
 const userScheme = require("../models/user");
 const service = require("../services/user");
+const jwt = require("jsonwebtoken");
 
 const register = async (req, res, next) => {
   const { email, password, name } = req.body;
@@ -36,6 +37,44 @@ const register = async (req, res, next) => {
   }
 };
 
+const login = async (req, res, next) => {
+  const { email, password } = req.body;
+  try {
+    if (email && password) {
+      const user = await userScheme.findOne({ email });
+
+      if (user === null) {
+        return res.status(401).send({ message: "Email or password is wrong" });
+      }
+      const validPass = await bctypt.compare(password, user.password);
+      console.log("validPass: ", validPass);
+      if (!validPass) {
+        return res.json({
+          status: 401,
+          message: "Email or password is wrong",
+        });
+      }
+      const token = jwt.sign(
+        { email: user.email, password: user.password },
+        process.env.SECRET,
+        {
+          expiresIn: "1h",
+        }
+      );
+      res.send({ user, token });
+    } else {
+      return res.json({
+        status: 401,
+        message: "Email or password is wrong",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
 module.exports = {
   register,
+  login,
 };
