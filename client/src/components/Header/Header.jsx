@@ -7,6 +7,7 @@ import avatar from "../../images/avatar.png";
 import Modal from "../backDropModal/Modal";
 
 const Header = () => {
+  const isAuth = false;
   const [isOpen, setOpen] = useState(false);
   const escHandler = (e) => {
     if (e.key === "Escape") {
@@ -21,7 +22,7 @@ const Header = () => {
 
   return (
     <div onKeyDown={escHandler} className="headerWrapper">
-      {isOpen ? <Modal type="reg" /> : null}
+      {isOpen ? <Modal isModalOpen={isOpen} type="reg" /> : null}
       <img className="headerLogo" src={logo} alt="header logo" />
       <ul className="headerNav">
         <li className="navItem">Laptops</li>
@@ -38,7 +39,7 @@ const Header = () => {
         <img src={cart} alt="cart-icon" />
 
         <div className="signBlock">
-          {isOpen ? (
+          {isAuth ? (
             <img src={avatar} alt="avatar-icon" />
           ) : (
             <p onClick={() => setOpen(true)} className="signBlockBtb">

@@ -1,7 +1,7 @@
 import React from "react";
 import "../backDropModal/modal.css";
 
-const Modal = ({ type }) => {
+const Modal = ({ type, isModalOpen }) => {
   return (
     <div className="overlay">
       <div className="modal">
