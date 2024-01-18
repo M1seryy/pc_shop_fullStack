@@ -7,6 +7,7 @@ import avatar from "../../images/avatar.png";
 import Modal from "../backDropModal/Modal";
 
 const Header = () => {
+  const [type, setType] = useState("reg");
   const isAuth = false;
   const [isOpen, setOpen] = useState(false);
   const escHandler = (e) => {
@@ -16,13 +17,19 @@ const Header = () => {
     return;
   };
 
+  const onChangeType = (value) => {
+    setType(value);
+  };
+
   useEffect(() => {
     document.addEventListener("keydown", escHandler);
   });
 
   return (
     <div onKeyDown={escHandler} className="headerWrapper">
-      {isOpen ? <Modal isModalOpen={isOpen} type="reg" /> : null}
+      {isOpen ? (
+        <Modal isModalOpen={isOpen} change={onChangeType} type={type} />
+      ) : null}
       <img className="headerLogo" src={logo} alt="header logo" />
       <ul className="headerNav">
         <li className="navItem">Laptops</li>

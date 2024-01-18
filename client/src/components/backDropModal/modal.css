@@ -72,3 +72,14 @@
   border: none;
   height: 35px;
 }
+
+.modalSubTest {
+  color: white;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  cursor: pointer;
+}
